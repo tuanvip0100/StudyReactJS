@@ -1,59 +1,94 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
+import { makeStyles,withStyles } from '@material-ui/core/styles';
 import {
-    FormControl,
-    InputLabel,
-    Input,
+    Avatar,
     Button,
     Box,
     CssBaseline,
-    Container,
+    TextField,
     Grid,
     FormControlLabel,
     Checkbox,
-    Link,
     Paper,
     Typography
 } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import {FormGroup} from '@material-ui/core';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
-const useStyles = makeStyles(theme => ({
-    margin: {
-        margin: theme.spacing(0),
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+          {'Copyright © '}
+          <Link color="inherit" href="https://material-ui.com/">
+            Your Website
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
+    );
+}    
+const StyledButton = withStyles({
+    root: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 3,
+      border: 0,
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
-    // extendedIcon: {
-    //     marginRight: theme.spacing(1),
-    // },
+    label: {
+      textTransform: 'capitalize',
+    },
+  })(Button);
+const useStyles = makeStyles(theme => ({
+    root: {
+        height: '100vh',
+      },
+    image: {
+        backgroundImage: 'url(https://images.unsplash.com/photo-1585447790621-aefc1fe5cba9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max)',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor:
+          theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      },
     paper: {
-        marginTop: theme.spacing(0),
+        marginTop: theme.spacing(6),
+        padding: theme.spacing(5),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
       },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+      },
     form: {
         width: '100%',
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(1),        
       },
     submit: {
-        margin: theme.spacing(0),
-      },  
-    paperContainer: {
-        backgroundColor: '#333',
-    },
+        margin: theme.spacing(3,0,2),
+      },
 }));
 
 const LoginForm = props => {
     const classes= useStyles();
     return(
         <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="xs" xs={2}>
-                <Typography component="div" variant="body1">
-                    <Box bgcolor="white">
+            <Grid container component="main" className={classes.root}>
+                <CssBaseline />
+                <Grid item xs={false} sm={4} md={7} className={classes.image} />
+                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <form onSubmit={props.onSubmit}>
                             <div className={classes.paper}>
-                                <h1>Login Form</h1>
+                                <Avatar className={classes.avatar}>
+                                    <LockOpenIcon />
+                                </Avatar>
+                                <Typography component="h1" variant="h5">    
+                                    Login Form
+                                </Typography>
                                 <form className={classes.form} noValidate>
                                     <TextField
                                         variant="outlined"
@@ -87,19 +122,10 @@ const LoginForm = props => {
                                     />
                                     <Button
                                         type="submit"
-                                        variant="contained"
                                         fullWidth
-                                        color="primary"
                                         className={classes.submit}>
-                                        Sign In
+                                        <StyledButton>Sign In</StyledButton>
                                     </Button>
-                                    {/* <Button
-                                        variant="contained"
-                                        type="submit"
-                                        className={classes.margin}
-                                        color="primary">
-                                        Clear
-                                    </Button> */}
                                     <Grid container>
                                         <Grid item xs>
                                         <Link href="#" variant="body2">
@@ -107,17 +133,19 @@ const LoginForm = props => {
                                         </Link>
                                         </Grid>
                                         <Grid item>
-                                        <Link href="#" variant="body2">
+                                        <Link to="/register" variant="body2">                                            
                                             {"Don't have an account? Sign Up"}
                                         </Link>
                                         </Grid>
                                     </Grid>
+                                    <Box mt={5}>
+                                        <Copyright />
+                                    </Box>
                                 </form>
                             </div>                            
                         </form>
-                    </Box>
-                </Typography>
-            </Container>
+                    </Grid>
+            </Grid>
         </React.Fragment>
     );
 }

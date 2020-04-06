@@ -29,7 +29,7 @@ const LoginForm = props => {
                 <Typography component="div" variant="body1">
                     <Box bgcolor="success.main">
                         <form onSubmit={props.onSubmit}>
-                            <h1>ABCDEF</h1>
+                            <h1>Login</h1>
                             <InputLabel htmlFor="userName">
                                 User Name
                             </InputLabel >
@@ -56,13 +56,6 @@ const LoginForm = props => {
                                 color="primary">
                                 Login
                              </Button>
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                className={classes.margin}
-                                color="primary">
-                                Clear
-                            </Button>
                         </form>
                     </Box>
                 </Typography>

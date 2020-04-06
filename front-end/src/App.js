@@ -4,6 +4,7 @@ import Home from './component/HomeComponent/Home';
 import Detail from './component/DetailComponent/Detail';
 import Login from './component/LoginComponent/Login';
 import AddNewFriend from './component/HomeComponent/AddNewFriend/AddNewFriend';
+import RegisterAccount from './component/LoginComponent/RegisterAccount/RegisterAccount';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Link, Switch , Route} from "react-router-dom";
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/addNewFriend">
             <AddNewFriend />
+          </Route>
+          <Route exact path="/registerAccount">
+            <RegisterAccount />
           </Route>
         </Switch>
       </div>

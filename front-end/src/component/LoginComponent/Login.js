@@ -37,12 +37,19 @@ const Login = props => {
         });
     };
 
+    const Register = (event) => {
+        history.push('/registerAccount');
+    };
+
     return (
         <React.Fragment>
             <LoginForm
                 onChange={handleChange}
                 onSubmit={handleSubmit}
                 value={value} />
+            <Button variant="contained" color="primary" onClick={Register}>
+                Register
+            </Button>
         </React.Fragment>
     );
 }

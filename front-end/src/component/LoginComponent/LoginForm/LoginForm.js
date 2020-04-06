@@ -20,7 +20,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
           {'Copyright © '}
           <Link color="inherit" href="https://material-ui.com/">
-            Your Website
+            RelaMa Page
           </Link>{' '}
           {new Date().getFullYear()}
           {'.'}
@@ -33,7 +33,7 @@ const StyledButton = withStyles({
       borderRadius: 3,
       border: 0,
       color: 'white',
-      height: 48,
+      height: 38,
       padding: '0 30px',
       boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
         height: '100vh',
       },
     image: {
-        backgroundImage: 'url(https://images.unsplash.com/photo-1585447790621-aefc1fe5cba9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max)',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1584556145883-aee8da76ca9e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max)',
         backgroundRepeat: 'no-repeat',
         backgroundColor:
           theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -87,7 +87,7 @@ const LoginForm = props => {
                                     <LockOpenIcon />
                                 </Avatar>
                                 <Typography component="h1" variant="h5">    
-                                    Login Form
+                                    Welcome to RelaMa!
                                 </Typography>
                                 <form className={classes.form} noValidate>
                                     <TextField
@@ -120,12 +120,12 @@ const LoginForm = props => {
                                         control={<Checkbox value="remember" color="primary" />}
                                         label="Remember me"
                                     />
-                                    <Button
+                                    <StyledButton
                                         type="submit"
                                         fullWidth
                                         className={classes.submit}>
-                                        <StyledButton>Sign In</StyledButton>
-                                    </Button>
+                                        Sign In
+                                    </StyledButton>
                                     <Grid container>
                                         <Grid item xs>
                                         <Link href="#" variant="body2">
@@ -137,11 +137,11 @@ const LoginForm = props => {
                                             {"Don't have an account? Sign Up"}
                                         </Link>
                                         </Grid>
-                                    </Grid>
-                                    <Box mt={5}>
-                                        <Copyright />
-                                    </Box>
+                                    </Grid>                                    
                                 </form>
+                                <Box mt={5}>
+                                    <Copyright />
+                                </Box>
                             </div>                            
                         </form>
                     </Grid>

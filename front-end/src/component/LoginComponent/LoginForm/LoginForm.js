@@ -86,11 +86,6 @@ const LoginForm = props => {
         <React.Fragment>
             <Grid container component="main" className={classes.root}>
                 <CssBaseline />
-                <div className={classes.content}>
-                    <Typography component="h1" variant="h5">    
-                        Welcome to RelaMa. You can do anything you want
-                    </Typography>
-                </div>
                 <Grid item xs={false} sm={4} md={7} className={classes.image} />
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <form onSubmit={props.onSubmit}>

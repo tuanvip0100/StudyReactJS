@@ -14,13 +14,14 @@ import {
     Typography
 } from '@material-ui/core';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
           {'Copyright © '}
           <Link color="inherit" href="https://material-ui.com/">
-            RelaMa Page
+            RelaMa Page<FavoriteBorderIcon />
           </Link>{' '}
           {new Date().getFullYear()}
           {'.'}
@@ -52,6 +53,7 @@ const useStyles = makeStyles(theme => ({
           theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        position: 'relative'
       },
     paper: {
         marginTop: theme.spacing(6),
@@ -71,6 +73,11 @@ const useStyles = makeStyles(theme => ({
     submit: {
         margin: theme.spacing(3,0,2),
       },
+    content: {
+        position:'absolute',
+        top: '45%',
+        left: '50%',
+        },
 }));
 
 const LoginForm = props => {
@@ -79,6 +86,11 @@ const LoginForm = props => {
         <React.Fragment>
             <Grid container component="main" className={classes.root}>
                 <CssBaseline />
+                <div className={classes.content}>
+                    <Typography component="h1" variant="h5">    
+                        Welcome to RelaMa. You can do anything you want
+                    </Typography>
+                </div>
                 <Grid item xs={false} sm={4} md={7} className={classes.image} />
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <form onSubmit={props.onSubmit}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from "react-router-dom";
 import ListContact from './ListContact/ListContact';
 import SearchBar from './SearchBar/SearchBar';
+import Header from './Header/Header';
 import DetailInfoService from '../../service/DetailInfoService';
 import AddNewFriend from './AddNewFriend/AddNewFriend';
 import {Link} from "react-router-dom";
@@ -28,7 +29,7 @@ const Home = props => {
     }
     return (
         <div>
-            <div> HomeComponent</div>
+            <Header />
             <Link to="/addNewFriend" >Add new friend</Link>
             <SearchBar
                 value={searchTerm}
